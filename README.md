@@ -1,5 +1,5 @@
 # aws-terraform-jenkins
-This project creates a HTTPS Jenkins service on AWS using terraform
+This project creates a HTTPS Jenkins service on AWS using terraform, the reason a ELB (elastic load balancer) is used here is because it allows us to use the SSL cert issued by AWS so it is easier to manage in long run.
 
 # Install Terraform
 Terraform is a tool for building, changing, and versioning our AWS infrastructure safely and efficiently
