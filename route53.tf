@@ -1,5 +1,5 @@
 resource "aws_route53_record" "jenkins_record" {
-  zone_id = data.aws_route53_zone.xorzor_route53_zone.zone_id
+  zone_id = data.aws_route53_zone.my_route53_zone.zone_id
   name    = "jenkins.xorzor.net"
   type    = "A"
   alias {
@@ -10,14 +10,14 @@ resource "aws_route53_record" "jenkins_record" {
 }
 
 resource "aws_route53_record" "jenkins_internal_record" {
-  zone_id = data.aws_route53_zone.xorzor_route53_zone.zone_id
+  zone_id = data.aws_route53_zone.my_route53_zone.zone_id
   name    = "jenkins-internal.xorzor.net"
   type    = "A"
   ttl     = "300"
   records = [aws_eip.jenkins_eip.public_ip]
 }
 
-data "aws_route53_zone" "xorzor_route53_zone" {
+data "aws_route53_zone" "my_route53_zone" {
   name = "xorzor.net."
 }
 

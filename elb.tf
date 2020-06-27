@@ -10,7 +10,7 @@ resource "aws_lb" "jenkins-load-balancer" {
   }
 }
 
-data "aws_acm_certificate" "dev_xorzor_cert" {
+data "aws_acm_certificate" "my_jenkins_cert" {
   domain   = "*.xorzor.net"
   statuses = ["ISSUED"]
 }
@@ -21,7 +21,7 @@ resource "aws_lb_listener" "jenkins_https_listener" {
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
 
-  certificate_arn = data.aws_acm_certificate.dev_xorzor_cert.arn
+  certificate_arn = data.aws_acm_certificate.my_jenkins_cert.arn
 
   default_action {
     type             = "forward"
