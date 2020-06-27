@@ -1,13 +1,6 @@
-variable "ami_id" {
-  type = map
-  default = {
-    ap-southeast-1 = "ami-0615132a0f36d24f4"
-  }
-}
-
-variable "instance_type" {
+variable "region" {
   type    = string
-  default = "t2.nano"
+  default = "ap-southeast-1"
 }
 
 variable "az_1" {
@@ -20,17 +13,24 @@ variable "az_2" {
   default = "ap-southeast-1b"
 }
 
-variable "s3_jenkins_backup" {
+variable "ami_id" {
+  type = map
+  default = {
+    ap-southeast-1 = "ami-0615132a0f36d24f4"
+  }
+}
+
+variable "instance_type" {
   type    = string
-  default = "chriswu-jenkins-backup"
+  default = "t2.nano"
 }
 
 variable "s3_tf_backend" {
   type    = string
-  default = "chriswu-tf-state-files"
+  default = "tf-state-backend"
 }
 
 variable "jenkins_tf_tags" {
   type    = string
-  default = "chriswu-jenkins"
+  default = "my-jenkins"
 }
