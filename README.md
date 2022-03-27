@@ -7,16 +7,14 @@ We use Elastic Load Balancer (**ELB**) because it allow us to use AWS managed SS
 
 # Setup
 
-1. `Python`
+## Install poetry
 ```
-python3 -m venv myenv
-source myenv/bin/activate
+pip3 install poetry
 ```
 
-2. `pre-commit`
+## Install pre-commit
 ```
-pip3 install pre-commit
-pre-commit install
+poetry run pre-commit install -t pre-commit
 ```
 
 ## Install terraform
