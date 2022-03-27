@@ -14,7 +14,7 @@ variable "az_2" {
 }
 
 variable "ami_id" {
-  type = map
+  type = map(any)
   default = {
     ap-southeast-1 = "ami-0615132a0f36d24f4"
   }
