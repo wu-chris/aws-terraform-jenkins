@@ -31,4 +31,3 @@ EOF
     Name = var.jenkins_tf_tags
   }
 }
-

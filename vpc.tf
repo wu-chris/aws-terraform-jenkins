@@ -60,4 +60,3 @@ resource "aws_route_table_association" "jenkins_asso_subnet_2" {
   subnet_id      = aws_subnet.jenkins_subnet_2.id
   route_table_id = aws_route_table.jenkins_route_public.id
 }
-

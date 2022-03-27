@@ -8,20 +8,22 @@ We use Elastic Load Balancer (**ELB**) because it allow us to use AWS managed SS
 # Setup
 
 ## Install poetry
+
 ```
 pip3 install poetry
 ```
 
 ## Install pre-commit
+
 ```
 poetry run pre-commit install -t pre-commit
 ```
 
 ## Install terraform
 
-```bash
+```
 brew install terraform
-```   
+```  
 
 # AWS Access Key
 Generate an access key on AWS console, add the following environment variables on your work machine:
@@ -30,20 +32,20 @@ export AWS_ACCESS_KEY_ID="access-key-id"
 export AWS_SECRET_ACCESS_KEY="access-key-secret"
 ```
 
-# Prerequisites 
+# Prerequisites
 Some base resources need to be created manually:
 
-- S3 bucket as terraform backend 
+- S3 bucket as terraform backend
    - a `jenkins` folder in a s3 bucket called `tf-state-backend`
 - A managed DNS hosted zone
    - `xorzor.net.`
 - A validated certificate
    - `*.xorzor.net`
 
-> :warning: create your own version of above resources and replace the respective names in the terraform scripts 
+> :warning: create your own version of above resources and replace the respective names in the terraform scripts
 
 
-# Build 
+# Build
 ```
 # sync s3 backend state
 terraform init

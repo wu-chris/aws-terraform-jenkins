@@ -20,4 +20,3 @@ resource "aws_route53_record" "jenkins_internal_record" {
 data "aws_route53_zone" "my_route53_zone" {
   name = "xorzor.net."
 }
-

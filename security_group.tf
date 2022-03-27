@@ -53,4 +53,3 @@ resource "aws_security_group" "jenkins_elb_sg" {
     Name = var.jenkins_tf_tags
   }
 }
-

@@ -1,5 +1,22 @@
+exclude: (package.*\.json|poetry.lock)
+default_stages: [commit]
 repos:
-- repo: git://github.com/antonbabenko/pre-commit-terraform
-  rev: v1.43.0 # Get the latest from: https://github.com/antonbabenko/pre-commit-terraform/releases
-  hooks:
-    - id: terraform_fmt
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: check-merge-conflict
+      - id: check-json
+      - id: check-xml
+      - id: debug-statements
+      - id: end-of-file-fixer
+      - id: pretty-format-json
+        args:
+          - --autofix
+      - id: trailing-whitespace
+        args:
+          - --markdown-linebreak-ext=md
+
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.43.0 # Get the latest from: https://github.com/antonbabenko/pre-commit-terraform/releases
+    hooks:
+      - id: terraform_fmt
