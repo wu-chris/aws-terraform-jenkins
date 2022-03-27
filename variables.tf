@@ -25,12 +25,19 @@ variable "instance_type" {
   default = "t2.nano"
 }
 
-variable "s3_tf_backend" {
-  type    = string
-  default = "tf-state-backend"
+variable "tf_state_bucket" {
+  type = string
+}
+
+variable "tf_state_key" {
+  type = string
 }
 
 variable "jenkins_tf_tags" {
   type    = string
   default = "my-jenkins"
+}
+
+variable "domain" {
+  type = string
 }

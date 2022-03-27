@@ -1,8 +1,13 @@
 terraform {
-  backend "s3" {
+  backend "s3" {}
+}
+
+data "terraform_remote_state" "state" {
+  backend = "s3"
+  config = {
+    region  = var.region
+    bucket  = var.tf_state_bucket
+    key     = var.tf_state_key
     encrypt = true
-    bucket  = "tf-state-backend"
-    key     = "jenkins/terraform.state"
-    region  = "ap-southeast-1"
   }
 }
