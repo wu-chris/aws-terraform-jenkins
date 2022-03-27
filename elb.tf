@@ -1,22 +1,17 @@
-resource "aws_lb" "jenkins-load-balancer" {
-  name                       = "jenkins-load-balancer"
+resource "aws_lb" "jenkins-lb" {
+  name                       = "jenkins-lb"
   internal                   = false
   load_balancer_type         = "application"
   security_groups            = [aws_security_group.jenkins_elb_sg.id]
-  subnets                    = [aws_subnet.jenkins_subnet_1.id, aws_subnet.jenkins_subnet_2.id]
+  subnets                    = [aws_subnet.jenkins_subnet1.id, aws_subnet.jenkins_subnet2.id]
   enable_deletion_protection = false
   tags = {
     Name = var.jenkins_tf_tags
   }
 }
 
-data "aws_acm_certificate" "my_jenkins_cert" {
-  domain   = "*.xorzor.net"
-  statuses = ["ISSUED"]
-}
-
-resource "aws_lb_listener" "jenkins_https_listener" {
-  load_balancer_arn = aws_lb.jenkins-load-balancer.arn
+resource "aws_lb_listener" "jenkins_lb_listener" {
+  load_balancer_arn = aws_lb.jenkins-lb.arn
   port              = 443
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"

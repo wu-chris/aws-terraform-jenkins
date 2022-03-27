@@ -18,7 +18,7 @@ resource "aws_internet_gateway" "jenkins_gw" {
   }
 }
 
-resource "aws_subnet" "jenkins_subnet_1" {
+resource "aws_subnet" "jenkins_subnet1" {
   availability_zone = var.az_1
   vpc_id            = aws_vpc.jenkins_vpc.id
   cidr_block        = "10.0.1.0/24"
@@ -28,7 +28,7 @@ resource "aws_subnet" "jenkins_subnet_1" {
   }
 }
 
-resource "aws_subnet" "jenkins_subnet_2" {
+resource "aws_subnet" "jenkins_subnet2" {
   availability_zone = var.az_2
   vpc_id            = aws_vpc.jenkins_vpc.id
   cidr_block        = "10.0.2.0/24"
@@ -52,11 +52,11 @@ resource "aws_route_table" "jenkins_route_public" {
 }
 
 resource "aws_route_table_association" "jenkins_asso_subnet_1" {
-  subnet_id      = aws_subnet.jenkins_subnet_1.id
+  subnet_id      = aws_subnet.jenkins_subnet1.id
   route_table_id = aws_route_table.jenkins_route_public.id
 }
 
 resource "aws_route_table_association" "jenkins_asso_subnet_2" {
-  subnet_id      = aws_subnet.jenkins_subnet_2.id
+  subnet_id      = aws_subnet.jenkins_subnet2.id
   route_table_id = aws_route_table.jenkins_route_public.id
 }

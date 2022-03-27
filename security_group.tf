@@ -1,4 +1,4 @@
-resource "aws_security_group" "jenkins_instance_sg" {
+resource "aws_security_group" "jenkins_sg" {
   name   = "Jenkins Instance SG"
   vpc_id = aws_vpc.jenkins_vpc.id
 

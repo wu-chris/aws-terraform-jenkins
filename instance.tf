@@ -2,8 +2,8 @@ resource "aws_instance" "jenkins_instance" {
   ami                    = lookup(var.ami_id, var.region)
   instance_type          = var.instance_type
   iam_instance_profile   = aws_iam_instance_profile.jenkins_iam_instance_profile.name
-  vpc_security_group_ids = [aws_security_group.jenkins_instance_sg.id]
-  subnet_id              = aws_subnet.jenkins_subnet_1.id
+  vpc_security_group_ids = [aws_security_group.jenkins_sg.id]
+  subnet_id              = aws_subnet.jenkins_subnet1.id
   user_data              = <<EOF
 #! /bin/bash
 sudo yum update -y
